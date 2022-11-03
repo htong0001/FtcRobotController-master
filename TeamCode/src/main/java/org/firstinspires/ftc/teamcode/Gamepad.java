@@ -62,7 +62,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Basic: Omni Linear OpMode", group="Linear Opmode")
+@TeleOp(name="Gamepad", group="Linear Opmode")
 //@Disabled
 public class Gamepad extends LinearOpMode {
 
@@ -116,11 +116,18 @@ public class Gamepad extends LinearOpMode {
             //rightMotor = hardwareMap.dcMotor.get("Right_Motor");
 
             if(gamepad1.a){
+                leftMotor.setPower(-0.5);
+                rightMotor.setPower(-0.5);
+            } else {
+                leftMotor.setPower(0.0);
+                rightMotor.setPower(0.0);
+            }
+            if(gamepad1.y){
                 leftMotor.setPower(0.5);
                 rightMotor.setPower(0.5);
             } else {
                 leftMotor.setPower(0.0);
-                rightMotor.setPower(0.0);
+                leftMotor.setPower(0.0);
             }
 
         }
